@@ -1,0 +1,28 @@
+[
+  {
+    "id": "episode-20260502233426",
+    "timestamp": "2026-05-02T23:34:26.035088",
+    "query_type": "company_profile",
+    "tools_used": [
+      "sec_filing_search",
+      "financial_data_api",
+      "web_search"
+    ],
+    "tool_success_rates": {
+      "sec_filing_search": 1.0,
+      "financial_data_api": 0.8,
+      "web_search": 1.0
+    },
+    "quality_score": 0.85,
+    "key_lesson": "For company profiles, sec_filing_search should be called first before web_search to get authoritative data"
+  },
+  {
+    "id": "episode-20260502233508",
+    "timestamp": "2026-05-02T23:35:08.614332",
+    "query_type": "sector_analysis",
+    "tools_used": [],
+    "tool_success_rates": {},
+    "quality_score": 0.9,
+    "key_lesson": "For sector_analysis: tools [] performed well. Report quality: 0.90"
+  }
+]

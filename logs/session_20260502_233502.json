@@ -1,0 +1,30 @@
+{
+  "session_id": "20260502_233502",
+  "traces": [
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T23:35:02.077867",
+      "content": "New research query: Based on previously researched companies, what themes emerge in the technology sector?"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T23:35:02.078233",
+      "content": "Checking long-term memory for relevant past research"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T23:35:02.171679",
+      "content": "Found 3 relevant memories"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T23:35:03.632261",
+      "content": "Plan created"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T23:35:06.378273",
+      "content": "Research complete"
+    }
+  ]
+}

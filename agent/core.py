@@ -14,6 +14,8 @@ from agent.prompts import (
 )
 from tools import registry
 from memory.vector_store import VectorStore
+from memory.context_manager import ContextManager
+from memory.episodic import EpisodicMemory
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,44 +23,33 @@ load_dotenv()
 class ARA1Agent:
     """
     ARA-1: Autonomous Research Agent
-    
-    The core agent that orchestrates everything:
-    - Receives research queries
-    - Plans research approach
-    - Executes tools
-    - Synthesizes findings
-    - Produces research reports
+    Enhanced with full three-layer memory system.
     """
     
     def __init__(self):
         self.llm = llm_client
         self.registry = registry
         self.vector_store = VectorStore()
+        self.context_manager = ContextManager()
+        self.episodic_memory = EpisodicMemory()
         self.max_iterations = int(
             os.getenv("MAX_TOOL_CALLS", 20)
         )
-        print("[ARA-1] Agent initialized and ready")
+        print("[ARA-1] Agent initialized with full memory system")
     
-    def research(self, query: str, 
+    def research(self, query: str,
                  urgency: str = "standard") -> str:
         """
-        Main entry point for research tasks.
-        
-        urgency levels:
-        - critical: 30 min SLA, brief output
-        - urgent: 1 hour SLA, moderate depth  
-        - standard: 4 hour SLA, full depth
-        
-        Example:
-        report = agent.research(
-            "Analyze Apple Inc quarterly earnings"
-        )
+        Main research entry point.
+        Now uses all three memory layers.
         """
         
-        # Create session logger
+        # Reset context for new session
+        self.context_manager.reset()
         self.logger = AgentLogger()
+        
         self.logger.log_thought(
-            f"New research query received: {query}"
+            f"New research query: {query}"
         )
         
         print(f"\n{'='*60}")
@@ -67,39 +58,76 @@ class ARA1Agent:
         print(f"Urgency: {urgency}")
         print(f"{'='*60}\n")
         
-        # Step 1: Check long-term memory first
+        # Detect query type for episodic memory
+        query_type = self._detect_query_type(query)
+        
+        # Step 1: Check episodic memory for lessons
+        lessons = self.episodic_memory.get_lessons_for_query_type(
+            query_type
+        )
+        if lessons:
+            print(f"[ARA-1] Applying {len(lessons)} lessons from past research")
+            for lesson in lessons:
+                print(f"  → {lesson[:80]}")
+        
+        # Step 2: Check long-term memory
         memory_context = self._check_memory(query)
         
-        # Step 2: Create research plan
-        plan = self._create_plan(query, memory_context)
+        # Step 3: Create research plan
+        plan = self._create_plan(query, memory_context, lessons)
         
-        # Step 3: Execute research loop
+        # Step 4: Execute research
         gathered_data = self._execute_research(
             query, plan, urgency
         )
         
-        # Step 4: Synthesize findings
+        # Step 5: Synthesize
         report = self._synthesize(query, gathered_data)
         
-        # Step 5: Store findings in memory
-        self._store_findings(query, report)
+        # Step 6: Store findings
+        self._store_findings(query, report, query_type)
         
-        # Step 6: Log session summary
+        # Step 7: Record episode
+        self._record_episode(query_type, report)
+        
+        # Summary
         summary = self.logger.get_session_summary()
         print(f"\n{'='*60}")
         print(f"RESEARCH COMPLETE")
-        print(f"Total steps: {summary['total_steps']}")
         print(f"Tool calls: {summary['tool_calls']}")
         print(f"Errors: {summary['errors']}")
+        print(f"Key findings: {len(self.context_manager.get_key_findings())}")
         print(f"{'='*60}\n")
         
         return report
     
+    def _detect_query_type(self, query: str) -> str:
+        """
+        Classify query type for episodic memory lookup.
+        """
+        query_lower = query.lower()
+        
+        if any(word in query_lower for word in 
+               ["earnings", "quarterly", "revenue", "profit"]):
+            return "earnings_analysis"
+        
+        elif any(word in query_lower for word in 
+                 ["risk", "threat", "challenge", "danger"]):
+            return "risk_assessment"
+        
+        elif any(word in query_lower for word in 
+                 ["compare", "versus", "vs", "competitive"]):
+            return "comparison"
+        
+        elif any(word in query_lower for word in 
+                 ["sector", "industry", "theme", "trend"]):
+            return "sector_analysis"
+        
+        else:
+            return "company_profile"
+    
     def _check_memory(self, query: str) -> str:
-        """
-        Always check long-term memory first.
-        Avoids repeating research already done.
-        """
+        """Check long-term vector memory"""
         self.logger.log_thought(
             "Checking long-term memory for relevant past research"
         )
@@ -108,9 +136,8 @@ class ARA1Agent:
         
         if results:
             memory_text = "\n".join([
-                f"- {r['content']} "
-                f"(Source: {r['metadata'].get('source_type', 'unknown')}, "
-                f"Confidence: {r['metadata'].get('confidence', 'unknown')})"
+                f"- {r['content'][:200]} "
+                f"(Confidence: {r['metadata'].get('confidence', 'N/A')})"
                 for r in results
             ])
             self.logger.log_thought(
@@ -121,40 +148,43 @@ class ARA1Agent:
         self.logger.log_thought("No relevant memories found")
         return ""
     
-    def _create_plan(self, query: str, 
-                     memory_context: str) -> str:
-        """
-        Create a structured research plan.
-        This is the Plan part of Plan-and-Execute.
-        """
-        self.logger.log_thought(
-            "Creating research plan"
-        )
+    def _create_plan(self, query: str,
+                     memory_context: str,
+                     lessons: list = None) -> str:
+        """Create research plan using episodic lessons"""
+        
+        lessons_text = ""
+        if lessons:
+            lessons_text = "\nLessons from past similar research:\n"
+            lessons_text += "\n".join(
+                f"- {l}" for l in lessons
+            )
         
         planning_prompt = get_planning_prompt(
-            query, memory_context
+            query, 
+            memory_context + lessons_text
         )
         
         plan = self.llm.chat(
-            system_prompt="You are ARA-1 research planner. Create efficient, non-redundant research plans.",
+            system_prompt="""You are ARA-1 research planner. 
+            Create efficient research plans using past lessons.""",
             user_message=planning_prompt,
-            max_tokens=1000
+            max_tokens=800
         )
         
         print(f"\n📋 RESEARCH PLAN:\n{plan}\n")
-        self.logger.log_thought(f"Plan created: {plan}")
+        self.logger.log_thought(f"Plan created")
+        self.context_manager.add_to_context(
+            f"Research Plan:\n{plan}"
+        )
         
         return plan
     
     def _execute_research(self, query: str,
                           plan: str,
                           urgency: str) -> str:
-        """
-        Execute the ReAct loop to gather information.
-        Thought → Action → Observation → repeat
-        """
+        """Execute ReAct loop with context management"""
         
-        # Build tools description for system prompt
         tools_list = self.registry.get_tools_for_llm()
         tools_description = "\n".join([
             f"- {t['name']}: {t['description']}"
@@ -163,11 +193,10 @@ class ARA1Agent:
         
         system_prompt = get_system_prompt(tools_description)
         
-        # Build initial message
         iteration_count = 0
         gathered_data = []
+        tool_results = {}
         
-        # Adjust depth based on urgency
         max_calls = {
             "critical": 5,
             "urgent": 10,
@@ -179,32 +208,34 @@ class ARA1Agent:
 Research Plan:
 {plan}
 
-Begin your research now. Follow the THOUGHT/ACTION/PARAMS 
-format strictly."""
+Begin research now using THOUGHT/ACTION/PARAMS format."""
         
         while iteration_count < max_calls:
             iteration_count += 1
-            print(f"\n--- Iteration {iteration_count} ---")
+            print(f"\n--- Iteration {iteration_count}/{max_calls} ---")
             
-            # Get agent's next action
+            # Use context manager for long sessions
+            full_context = self.context_manager.get_full_context()
+            if full_context:
+                current_message = f"{conversation}\n\nContext so far:\n{full_context[-2000:]}"
+            else:
+                current_message = conversation
+            
             response = self.llm.chat(
                 system_prompt=system_prompt,
-                user_message=conversation,
+                user_message=current_message,
                 max_tokens=2000
             )
             
-            # Parse the response
             parsed = parser.parse(response)
             
-            # Agent is done
             if parsed["type"] == "final_answer":
                 self.logger.log_thought(
-                    "Agent determined research is complete"
+                    "Research complete"
                 )
                 gathered_data.append(parsed["content"])
                 break
             
-            # Agent wants to use a tool
             elif parsed["type"] == "action":
                 thought = parsed.get("thought", "")
                 action = parsed.get("action", "")
@@ -212,9 +243,11 @@ format strictly."""
                 
                 if thought:
                     self.logger.log_thought(thought)
+                    self.context_manager.add_to_context(
+                        f"Thought: {thought}"
+                    )
                 
                 if action:
-                    # Execute the tool
                     self.logger.log_action(action, params)
                     result = self.registry.execute(action, params)
                     
@@ -223,81 +256,140 @@ format strictly."""
                         action, result, success
                     )
                     
+                    # Track tool performance
+                    if action not in tool_results:
+                        tool_results[action] = []
+                    tool_results[action].append(success)
+                    
                     if success:
                         data = result.get("data", {})
+                        data_str = str(data)[:500]
                         gathered_data.append(
-                            f"[{action}]: {str(data)[:500]}"
+                            f"[{action}]: {data_str}"
                         )
-                        observation = f"Tool {action} returned: {str(data)[:300]}"
+                        
+                        # Add key findings
+                        self.context_manager.add_key_finding(
+                            finding=data_str[:100],
+                            source=action
+                        )
+                        
+                        observation = f"Tool {action} returned: {data_str[:300]}"
+                        self.context_manager.add_to_context(
+                            f"Observation: {observation}"
+                        )
                     else:
-                        error = result.get("error", "Unknown error")
+                        error = result.get("error", "Unknown")
                         self.logger.log_error(action, error)
-                        observation = f"Tool {action} failed: {error}. Try a different approach."
+                        observation = f"Tool {action} failed: {error}"
                     
-                    # Add to conversation
-                    conversation += f"\n\nASSISTANT: {response}\n\nOBSERVATION: {observation}\n\nContinue research:"
+                    conversation += f"\n\nASSISTANT: {response}\n\nOBSERVATION: {observation}\n\nContinue:"
             
-            # Just a thought, no action
             else:
                 thought = parsed.get("thought", response)
                 self.logger.log_thought(thought)
                 conversation += f"\n\nASSISTANT: {response}\n\nContinue:"
         
+        # Calculate tool efficiency for episodic memory
+        self.tool_results = tool_results
+        
         return "\n\n".join(gathered_data)
     
-    def _synthesize(self, query: str, 
+    def _synthesize(self, query: str,
                     gathered_data: str) -> str:
-        """
-        Synthesize all gathered data into final report.
-        This is where financial analysis happens.
-        """
-        self.logger.log_thought(
-            "Synthesizing all gathered data into report"
-        )
+        """Synthesize with key findings from context"""
+        
+        key_findings = self.context_manager.get_findings_summary()
+        
+        enhanced_data = f"""
+GATHERED DATA:
+{gathered_data}
+
+KEY FINDINGS EXTRACTED:
+{key_findings}
+"""
         
         synthesis_prompt = get_synthesis_prompt(
-            query, gathered_data
+            query, enhanced_data
         )
         
         report = self.llm.chat(
-            system_prompt="""You are ARA-1 synthesis engine. 
+            system_prompt="""You are ARA-1 synthesis engine.
             Produce professional investment research reports.
-            Never fabricate data. Always cite sources.""",
+            Never fabricate data. Always cite sources.
+            Include source reliability notes.""",
             user_message=synthesis_prompt,
             max_tokens=4000
         )
         
         return report
     
-    def _store_findings(self, query: str, report: str):
-        """
-        Store research findings in long-term memory.
-        Next time a similar query comes in,
-        agent can reuse these findings.
-        """
-        self.logger.log_thought(
-            "Storing findings in long-term memory"
-        )
+    def _store_findings(self, query: str,
+                        report: str,
+                        query_type: str):
+        """Store findings in long-term vector memory"""
         
-        # Extract ticker from query if present
         common_tickers = [
             "AAPL", "MSFT", "TSLA", "GOOGL", "AMZN",
-            "NVDA", "META", "NFLX", "JPM", "GS"
+            "NVDA", "META", "NFLX", "JPM", "GS", "PLTR"
         ]
+        
         ticker = "GENERAL"
         for t in common_tickers:
             if t in query.upper():
                 ticker = t
                 break
         
+        # Store full report summary
         self.vector_store.store(
-            content=report[:1000],
+            content=report[:800],
             ticker=ticker,
-            source_type="agent_research",
+            source_type=query_type,
             confidence=0.8
         )
         
-        print(f"[ARA-1] Findings stored to memory")
+        # Store key findings separately for better retrieval
+        for finding in self.context_manager.get_key_findings():
+            self.vector_store.store(
+                content=finding["finding"],
+                ticker=ticker,
+                source_type=finding["source"],
+                confidence=0.9
+            )
+        
+        print(f"[ARA-1] Stored {1 + len(self.context_manager.get_key_findings())} records to memory")
+    
+    def _record_episode(self, query_type: str, report: str):
+        """Record this session in episodic memory"""
+        
+        # Calculate tool success rates
+        tool_success_rates = {}
+        if hasattr(self, 'tool_results'):
+            for tool, results in self.tool_results.items():
+                if results:
+                    tool_success_rates[tool] = sum(results) / len(results)
+        
+        # Simple quality estimate based on report length
+        quality_score = min(
+            0.9,
+            len(report.split()) / 500
+        )
+        
+        # Generate lesson
+        tools_that_worked = [
+            t for t, r in tool_success_rates.items()
+            if r > 0.5
+        ]
+        
+        lesson = f"For {query_type}: tools {tools_that_worked} performed well. Report quality: {quality_score:.2f}"
+        
+        self.episodic_memory.record_episode(
+            query_type=query_type,
+            tools_used=list(tool_success_rates.keys()),
+            tool_success_rates=tool_success_rates,
+            quality_score=quality_score,
+            key_lesson=lesson
+        )
 
 
 # Global agent instance
