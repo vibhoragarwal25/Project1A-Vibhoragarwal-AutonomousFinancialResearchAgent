@@ -1,0 +1,15 @@
+{
+  "session_id": "20260502_224806",
+  "traces": [
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T22:48:06.431518",
+      "content": "New research query received: Create a basic profile of Microsoft Corporation including business overview and key facts"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T22:48:06.431627",
+      "content": "Checking long-term memory for relevant past research"
+    }
+  ]
+}
