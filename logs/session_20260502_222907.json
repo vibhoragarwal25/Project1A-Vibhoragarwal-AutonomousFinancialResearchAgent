@@ -1,0 +1,26 @@
+{
+  "session_id": "20260502_222907",
+  "traces": [
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-02T22:29:07.520611",
+      "content": "I need to research Apple revenue"
+    },
+    {
+      "type": "ACTION",
+      "timestamp": "2026-05-02T22:29:07.520775",
+      "tool": "financial_data_api",
+      "params": {
+        "ticker": "AAPL",
+        "statement_type": "income"
+      }
+    },
+    {
+      "type": "OBSERVATION",
+      "timestamp": "2026-05-02T22:29:07.520916",
+      "tool": "financial_data_api",
+      "success": true,
+      "result_preview": "{'revenue': 391000000000}"
+    }
+  ]
+}
