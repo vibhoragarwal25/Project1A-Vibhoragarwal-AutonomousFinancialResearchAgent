@@ -52,5 +52,20 @@
     },
     "quality_score": 0.9,
     "key_lesson": "For earnings_analysis: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260503112816",
+    "timestamp": "2026-05-03T11:28:16.093854",
+    "query_type": "company_profile",
+    "tools_used": [
+      "vector_db_search",
+      "sec_filing_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0,
+      "sec_filing_search": 1.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For company_profile: tools ['sec_filing_search'] performed well. Report quality: 0.90"
   }
 ]
