@@ -249,7 +249,7 @@ Begin research now using THOUGHT/ACTION/PARAMS format."""
                         f"Thought: {thought}"
                     )
                 
-                if action:                                          # FIX 1: was unindented
+if action:
                     self.logger.log_action(action, params)
                     
                     # Check circuit breaker first
@@ -334,7 +334,7 @@ Begin research now using THOUGHT/ACTION/PARAMS format."""
                         self.context_manager.add_to_context(
                             f"Observation: {observation}"
                         )
-                    else:                                           # FIX 2: was over-indented with a leading space
+                    else:
                         error = result.get("error", "Unknown")
                         degradation_note = result.get("report_note", "")
                         self.logger.log_error(action, error)
@@ -346,13 +346,11 @@ Begin research now using THOUGHT/ACTION/PARAMS format."""
                         
                         observation = f"Tool {action} unavailable: {error}. {degradation_note}"
                     
-                    conversation += f"\n\nASSISTANT: {response}\n\nOBSERVATION: {observation}\n\nContinue:"
-                
-                else:                                              # FIX 3: was over-indented with a leading space
-                    thought = parsed.get("thought", response)
-                    self.logger.log_thought(thought)
-                    conversation += f"\n\nASSISTANT: {response}\n\nContinue:"
-
+                    conversation += f"\n\nASSISTANT: {response}\n\nOBSERVATION: {observation}\n\nContinue:"            
+            else:
+                thought = parsed.get("thought", response)
+                self.logger.log_thought(thought)
+                conversation += f"\n\nASSISTANT: {response}\n\nContinue:"
         # Calculate tool efficiency for episodic memory
         self.tool_results = tool_results
         
