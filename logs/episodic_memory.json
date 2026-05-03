@@ -24,5 +24,33 @@
     "tool_success_rates": {},
     "quality_score": 0.9,
     "key_lesson": "For sector_analysis: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260503112113",
+    "timestamp": "2026-05-03T11:21:13.378915",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search",
+      "company_profile"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0,
+      "company_profile": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260503112239",
+    "timestamp": "2026-05-03T11:22:39.573127",
+    "query_type": "earnings_analysis",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For earnings_analysis: tools [] performed well. Report quality: 0.90"
   }
 ]
