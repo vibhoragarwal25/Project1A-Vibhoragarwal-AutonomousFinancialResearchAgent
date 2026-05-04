@@ -1,7 +1,7 @@
 {
   "challenge_1": {
     "challenge_id": "challenge_1",
-    "timestamp": "2026-05-05T03:11:01.489201",
+    "timestamp": "2026-05-05T04:16:56.012186",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 40.0,
@@ -32,11 +32,11 @@
         "meets_target": true
       },
       "coherence": {
-        "CS1_logical_flow": 80.0,
+        "CS1_logical_flow": 90.0,
         "CS2_internal_consistency": 100,
         "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 80.0,
-        "category_score": 90.0,
+        "category_score": 92.5,
         "target": 80.0,
         "meets_target": true
       },
@@ -51,14 +51,14 @@
         "meets_target": true
       }
     },
-    "overall_score": 78.5,
+    "overall_score": 78.9,
     "meets_minimum_threshold": true,
     "word_count": 2171,
     "report_preview": "# Investment Research Report: Microsoft Corporation (MSFT)\n\n**Rating: BUY | Price Target: $520 | Report Date: May 4, 2026**\n\n---\n\n## Research Methodology\n\nOur research systematically gathered data fro"
   },
   "challenge_2": {
     "challenge_id": "challenge_2",
-    "timestamp": "2026-05-05T03:11:08.766076",
+    "timestamp": "2026-05-05T04:17:02.369442",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 24.3,
@@ -115,7 +115,7 @@
   },
   "challenge_3": {
     "challenge_id": "challenge_3",
-    "timestamp": "2026-05-05T03:11:15.833625",
+    "timestamp": "2026-05-05T04:17:08.819745",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 26.7,
@@ -172,7 +172,7 @@
   },
   "challenge_4": {
     "challenge_id": "challenge_4",
-    "timestamp": "2026-05-05T03:11:22.700602",
+    "timestamp": "2026-05-05T04:17:15.501047",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 28.3,
@@ -203,11 +203,11 @@
         "meets_target": false
       },
       "coherence": {
-        "CS1_logical_flow": 90.0,
+        "CS1_logical_flow": 80.0,
         "CS2_internal_consistency": 100,
         "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 80.0,
-        "category_score": 92.5,
+        "category_score": 90.0,
         "target": 80.0,
         "meets_target": true
       },
@@ -222,14 +222,14 @@
         "meets_target": true
       }
     },
-    "overall_score": 77.9,
+    "overall_score": 77.5,
     "meets_minimum_threshold": true,
     "word_count": 2866,
     "report_preview": "# Cloud Infrastructure Wars: AWS vs. Azure vs. Google Cloud\n\n**Comprehensive Competitive Analysis | Report Date: May 4, 2026**\n\n---\n\n## Executive Summary\n\nThe global cloud infrastructure market crosse"
   },
   "challenge_5": {
     "challenge_id": "challenge_5",
-    "timestamp": "2026-05-05T03:11:29.546837",
+    "timestamp": "2026-05-05T04:17:22.248211",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 26.8,
@@ -260,11 +260,11 @@
         "meets_target": false
       },
       "coherence": {
-        "CS1_logical_flow": 30.0,
+        "CS1_logical_flow": 50.0,
         "CS2_internal_consistency": 100,
         "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 100.0,
-        "category_score": 82.5,
+        "category_score": 87.5,
         "target": 80.0,
         "meets_target": true
       },
@@ -279,22 +279,22 @@
         "meets_target": true
       }
     },
-    "overall_score": 76.2,
+    "overall_score": 76.9,
     "meets_minimum_threshold": true,
     "word_count": 2560,
     "report_preview": "# Palantir Technologies (PLTR) \u2014 Investigative Report: Resolving the Growth-Sentiment Contradiction\n\n**Report Date: May 4, 2026 | Rating: HOLD | Analytical Lens: Investigative**\n\n---\n\n## Executive Sum"
   },
   "challenge_6": {
     "challenge_id": "challenge_6",
-    "timestamp": "2026-05-05T03:11:36.508773",
+    "timestamp": "2026-05-05T04:18:34.366200",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 30.0,
         "FA2_citation_accuracy": 100.0,
         "FA3_temporal_accuracy": 100.0,
         "FA4_entity_accuracy": 100.0,
-        "FA5_hallucination_rate": 100.0,
-        "category_score": 86.0,
+        "FA5_hallucination_rate": 80.0,
+        "category_score": 82.0,
         "target": 98.0,
         "meets_target": true
       },
@@ -336,14 +336,14 @@
         "meets_target": true
       }
     },
-    "overall_score": 77.0,
+    "overall_score": 76.0,
     "meets_minimum_threshold": true,
     "word_count": 2905,
     "report_preview": "# U.S. Banking Sector Analysis: JPMorgan Chase, Goldman Sachs & Bank of America\n\n**Sector Report: 2024\u20132025 Outlook | Report Date: May 4, 2026**\n\n---\n\n## Executive Summary\n\nThe U.S. large-cap banking "
   },
   "challenge_7": {
     "challenge_id": "challenge_7",
-    "timestamp": "2026-05-05T03:11:43.165226",
+    "timestamp": "2026-05-05T04:19:28.095145",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 42.9,
@@ -374,11 +374,11 @@
         "meets_target": false
       },
       "coherence": {
-        "CS1_logical_flow": 80.0,
+        "CS1_logical_flow": 75.0,
         "CS2_internal_consistency": 100,
         "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 80.0,
-        "category_score": 90.0,
+        "category_score": 88.8,
         "target": 80.0,
         "meets_target": true
       },
@@ -393,14 +393,14 @@
         "meets_target": true
       }
     },
-    "overall_score": 79.2,
+    "overall_score": 79.1,
     "meets_minimum_threshold": true,
     "word_count": 3051,
     "report_preview": "# Technology Sector Thematic Analysis: Three Forces Reshaping Big Tech\n\n**Coverage Universe: Microsoft (MSFT) | Apple (AAPL) | Nvidia (NVDA) | Alphabet (GOOGL)**\n**Report Date: May 4, 2026 | Sector We"
   },
   "challenge_8": {
     "challenge_id": "challenge_8",
-    "timestamp": "2026-05-05T03:11:50.232657",
+    "timestamp": "2026-05-05T04:20:41.254464",
     "scores": {
       "factual_accuracy": {
         "FA1_numerical_accuracy": 24.4,
@@ -431,11 +431,11 @@
         "meets_target": true
       },
       "coherence": {
-        "CS1_logical_flow": 60.0,
+        "CS1_logical_flow": 75.0,
         "CS2_internal_consistency": 100,
         "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 80.0,
-        "category_score": 85.0,
+        "category_score": 88.8,
         "target": 80.0,
         "meets_target": true
       },
@@ -450,7 +450,7 @@
         "meets_target": true
       }
     },
-    "overall_score": 78.9,
+    "overall_score": 79.5,
     "meets_minimum_threshold": true,
     "word_count": 3470,
     "report_preview": "# NVIDIA Corporation (NVDA) \u2014 Full Investment Research Report\n\n**Rating: BUY | Price Target: $165 | Report Date: May 4, 2026**\n\n---\n\n## Executive Summary\n\nNVIDIA Corporation has undergone the most dra"
