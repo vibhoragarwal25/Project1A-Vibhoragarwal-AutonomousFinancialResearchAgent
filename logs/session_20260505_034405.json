@@ -1,0 +1,25 @@
+{
+  "session_id": "20260505_034405",
+  "traces": [
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-05T03:44:05.603691",
+      "content": "New research query: Brief overview of Microsoft"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-05T03:44:05.603955",
+      "content": "Checking long-term memory for relevant past research"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-05T03:44:05.627199",
+      "content": "Found 3 relevant memories"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-05T03:44:37.959959",
+      "content": "Plan created"
+    }
+  ]
+}

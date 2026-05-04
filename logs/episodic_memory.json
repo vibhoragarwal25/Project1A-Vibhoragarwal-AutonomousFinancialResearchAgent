@@ -268,5 +268,18 @@
     },
     "quality_score": 0.9,
     "key_lesson": "For risk_assessment: tools ['vector_db_search'] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260505034258",
+    "timestamp": "2026-05-05T03:42:58.537956",
+    "query_type": "company_profile",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 1.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For company_profile: tools ['vector_db_search'] performed well. Report quality: 0.90"
   }
 ]
