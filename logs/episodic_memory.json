@@ -136,5 +136,137 @@
     "tool_success_rates": {},
     "quality_score": 0.01,
     "key_lesson": "For sector_analysis: tools [] performed well. Report quality: 0.01"
+  },
+  {
+    "id": "episode-20260503201610",
+    "timestamp": "2026-05-03T20:16:10.173992",
+    "query_type": "company_profile",
+    "tools_used": [],
+    "tool_success_rates": {},
+    "quality_score": 0.01,
+    "key_lesson": "For company_profile: tools [] performed well. Report quality: 0.01"
+  },
+  {
+    "id": "episode-20260504005645",
+    "timestamp": "2026-05-04T00:56:45.418687",
+    "query_type": "sector_analysis",
+    "tools_used": [],
+    "tool_success_rates": {},
+    "quality_score": 0.9,
+    "key_lesson": "For sector_analysis: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504103634",
+    "timestamp": "2026-05-04T10:36:34.633181",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504110732",
+    "timestamp": "2026-05-04T11:07:32.794480",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504111617",
+    "timestamp": "2026-05-04T11:16:17.454597",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504112112",
+    "timestamp": "2026-05-04T11:21:12.926840",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504221502",
+    "timestamp": "2026-05-04T22:15:02.996605",
+    "query_type": "sector_analysis",
+    "tools_used": [
+      "vector_db_search",
+      "company_profile"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0,
+      "company_profile": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For sector_analysis: tools [] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504224920",
+    "timestamp": "2026-05-04T22:49:20.949498",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search",
+      "company_profile",
+      "web_search",
+      "financial_data_api",
+      "sec_filing_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 0.0,
+      "company_profile": 0.0,
+      "web_search": 1.0,
+      "financial_data_api": 0.0,
+      "sec_filing_search": 0.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools ['web_search'] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504230851",
+    "timestamp": "2026-05-04T23:08:51.602947",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 1.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools ['vector_db_search'] performed well. Report quality: 0.90"
+  },
+  {
+    "id": "episode-20260504231816",
+    "timestamp": "2026-05-04T23:18:16.553304",
+    "query_type": "risk_assessment",
+    "tools_used": [
+      "vector_db_search"
+    ],
+    "tool_success_rates": {
+      "vector_db_search": 1.0
+    },
+    "quality_score": 0.9,
+    "key_lesson": "For risk_assessment: tools ['vector_db_search'] performed well. Report quality: 0.90"
   }
 ]

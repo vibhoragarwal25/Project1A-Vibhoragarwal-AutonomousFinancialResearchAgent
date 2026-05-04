@@ -16,6 +16,40 @@ by gathering data from multiple sources and synthesizing findings.
 You have access to these tools:
 {tools_description}
 
+## CRITICAL TOOL PARAMETER RULES
+
+You MUST use these EXACT parameter names:
+
+sec_filing_search: ticker="AAPL", filing_type="10-K"
+financial_data_api: ticker="AAPL", statement_type="income"
+web_search: query="Apple earnings 2024"
+news_sentiment: query="Apple stock news"
+earnings_transcript: ticker="AAPL", quarter="Q4", year=2024
+company_profile: ticker="AAPL"
+peer_comparison: ticker="AAPL"
+vector_db_search: query="Apple revenue growth"
+vector_db_store: content="finding", ticker="AAPL", source_type="analysis"
+fact_checker: claim="Apple revenue was 391 billion"
+calculation_engine: calculation_type="growth_rate", inputs={{"current_value": 110, "previous_value": 100}}
+report_generator: template="company_profile", sections={{}}, sources=[]
+
+NEVER use: company=, sector=, metric=, name=
+ALWAYS use: ticker= for company identification
+ALWAYS use: query= for search tools
+
+## CRITICAL: CORRECT PARAMETER NAMES
+
+ALWAYS use these exact parameter names:
+- company_profile: ticker="AAPL" ✅  NOT company="Apple" ❌
+- financial_data_api: ticker="AAPL", statement_type="income" ✅
+- sec_filing_search: ticker="AAPL", filing_type="10-K" ✅
+- web_search: query="Apple earnings 2024" ✅  NOT company="Apple" ❌
+- vector_db_search: query="technology themes" ✅  NOT topic="themes" ❌
+- earnings_transcript: ticker="AAPL", quarter="Q4", year=2024 ✅
+- peer_comparison: ticker="AAPL" ✅
+- fact_checker: claim="Apple revenue 391 billion" ✅
+- calculation_engine: calculation_type="growth_rate", inputs={{"current_value":110,"previous_value":100}} ✅
+
 ## HOW YOU THINK AND ACT
 You must follow this exact format for every step:
 
@@ -81,18 +115,39 @@ Use this to avoid repeating research already done.
 Research Query: {query}
 {memory_section}
 
-Create a numbered research plan with maximum 7 steps.
-Each step should specify:
-- What information is needed
-- Which tool to use
-- Why this tool is the best choice
+Create a maximum 6 step research plan.
 
-Format:
-STEP 1: [action] using [tool] because [reason]
-STEP 2: [action] using [tool] because [reason]
-...
+## MANDATORY PARAMETER RULES
+You MUST use these exact parameter names when specifying tools:
 
-Be specific and efficient. Avoid redundant steps."""
+sec_filing_search → ticker="AAPL", filing_type="10-K"
+financial_data_api → ticker="AAPL", statement_type="income"
+web_search → query="Apple earnings 2024"
+news_sentiment → query="Apple stock news"
+earnings_transcript → ticker="AAPL", quarter="Q4", year=2024
+company_profile → ticker="AAPL"
+peer_comparison → ticker="AAPL"
+vector_db_search → query="Apple revenue growth"
+fact_checker → claim="Apple revenue was 391 billion"
+calculation_engine → calculation_type="growth_rate", inputs={{"current_value":110,"previous_value":100}}
+
+NEVER use: company=, sector=, metric=, name=, topic=
+ALWAYS use: ticker= to identify companies
+ALWAYS use: query= for all search tools
+
+## PLAN FORMAT
+STEP 1: Check memory using vector_db_search with query="[topic]"
+STEP 2: Get company profile using company_profile with ticker="[TICKER]"
+STEP 3: Get financials using financial_data_api with ticker="[TICKER]", statement_type="income"
+STEP 4: Get SEC filing using sec_filing_search with ticker="[TICKER]", filing_type="10-K"
+STEP 5: Search news using web_search with query="[company] latest news 2024"
+STEP 6: Synthesize findings into report
+
+Adapt this structure to the specific query.
+Replace [TICKER] and [topic] with actual values.
+Be specific with real ticker symbols like AAPL MSFT TSLA NVDA.
+
+Write the research plan now:"""
 
 
 def get_synthesis_prompt(query: str, 

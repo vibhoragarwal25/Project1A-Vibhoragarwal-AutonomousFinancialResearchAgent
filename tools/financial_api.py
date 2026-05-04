@@ -83,30 +83,29 @@ def get_financial_data(
             
             else:
                 print(f"[FMP] No data returned for {ticker}")
-                return get_financial_data_stub(
+                return get_financial_data_yfinance(
                     ticker, statement_type, period, years
                 )
         
         elif response.status_code == 403:
             print(f"[FMP] API limit reached, using stub")
-            return get_financial_data_stub(
+            return get_financial_data_yfinance(
                 ticker, statement_type, period, years
             )
         
         else:
             print(f"[FMP] API returned {response.status_code}")
-            return get_financial_data_stub(
+            return get_financial_data_yfinance(
                 ticker, statement_type, period, years
             )
     
     except Exception as e:
         print(f"[FMP] Error: {e}, using stub")
-        return get_financial_data_stub(
+        return get_financial_data_yfinance(
             ticker, statement_type, period, years
         )
 
-
-def get_financial_data_stub(
+def get_financial_data_yfinance(
     ticker: str,
     statement_type: str = "income",
     period: str = "annual",
@@ -125,3 +124,105 @@ def get_financial_data_stub(
         },
         "source": "Financial Data (stub fallback)"
     }
+def get_financial_data_yfinance(
+    ticker: str,
+    statement_type: str = "income",
+    period: str = "annual",
+    years: int = 3
+) -> dict:
+    """
+    Yahoo Finance — completely free, no API key needed.
+    Used as fallback when FMP fails or hits limit.
+    """
+    
+    print(f"[Yahoo Finance] Getting {statement_type} for {ticker}...")
+    
+    try:
+        import yfinance as yf
+        
+        stock = yf.Ticker(ticker)
+        info = stock.info
+        
+        if statement_type == "income":
+            data = stock.financials
+        elif statement_type == "balance":
+            data = stock.balance_sheet
+        elif statement_type == "cashflow":
+            data = stock.cashflow
+        elif statement_type == "ratios":
+            # Build ratios from info
+            return {
+                "ticker": ticker,
+                "statement_type": "ratios",
+                "latest_period": "current",
+                "key_metrics": {
+                    "pe_ratio": info.get("trailingPE"),
+                    "forward_pe": info.get("forwardPE"),
+                    "profit_margin": info.get("profitMargins"),
+                    "roe": info.get("returnOnEquity"),
+                    "roa": info.get("returnOnAssets"),
+                    "debt_to_equity": info.get("debtToEquity"),
+                    "current_ratio": info.get("currentRatio"),
+                    "revenue_growth": info.get("revenueGrowth"),
+                    "earnings_growth": info.get("earningsGrowth")
+                },
+                "company_info": {
+                    "market_cap": info.get("marketCap"),
+                    "52_week_high": info.get("fiftyTwoWeekHigh"),
+                    "52_week_low": info.get("fiftyTwoWeekLow"),
+                    "analyst_target": info.get("targetMeanPrice")
+                },
+                "source": "Yahoo Finance via yfinance (real, free)"
+            }
+        else:
+            data = stock.financials
+        
+        if data is not None and not data.empty:
+            latest_col = data.columns[0]
+            latest_data = data[latest_col].to_dict()
+            
+            # Clean the data
+            clean_metrics = {}
+            for k, v in latest_data.items():
+                try:
+                    if v and str(v) != 'nan':
+                        clean_metrics[str(k)] = float(v)
+                except:
+                    pass
+            
+            # Add key summary metrics
+            summary = {
+                "ticker": ticker,
+                "statement_type": statement_type,
+                "latest_period": str(latest_col)[:10],
+                "key_metrics": clean_metrics,
+                "company_name": info.get("longName", ticker),
+                "sector": info.get("sector", "Unknown"),
+                "market_cap": info.get("marketCap"),
+                "source": "Yahoo Finance via yfinance (real, free)"
+            }
+            
+            # Add income-specific highlights
+            if statement_type == "income":
+                summary["highlights"] = {
+                    "revenue": info.get("totalRevenue"),
+                    "gross_profit": info.get("grossProfits"),
+                    "ebitda": info.get("ebitda"),
+                    "net_income": info.get("netIncomeToCommon"),
+                    "earnings_growth": info.get("earningsGrowth"),
+                    "revenue_growth": info.get("revenueGrowth")
+                }
+            
+            return summary
+        
+        else:
+            print(f"[Yahoo Finance] No data returned for {ticker}")
+            return get_financial_data_yfinance(
+                ticker, statement_type, period, years
+            )
+    
+    except Exception as e:
+        print(f"[Yahoo Finance] Error: {e}")
+        return get_financial_data_yfinance(
+            ticker, statement_type, period, years
+        )

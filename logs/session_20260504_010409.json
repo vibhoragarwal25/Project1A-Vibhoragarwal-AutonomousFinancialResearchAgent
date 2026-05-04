@@ -1,0 +1,25 @@
+{
+  "session_id": "20260504_010409",
+  "traces": [
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-04T01:04:09.910167",
+      "content": "New research query: Produce a complete investment research report on NVIDIA Corporation. Note some data sources may be unavailable"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-04T01:04:09.910845",
+      "content": "Checking long-term memory for relevant past research"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-04T01:04:10.069432",
+      "content": "Found 3 relevant memories"
+    },
+    {
+      "type": "THOUGHT",
+      "timestamp": "2026-05-04T01:04:27.982148",
+      "content": "Plan created"
+    }
+  ]
+}

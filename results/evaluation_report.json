@@ -1,329 +1,329 @@
 {
   "challenge_1": {
     "challenge_id": "challenge_1",
-    "timestamp": "2026-05-03T19:17:27.789280",
+    "timestamp": "2026-05-05T03:11:01.489201",
     "scores": {
       "factual_accuracy": {
-        "FA1_numerical_accuracy": 20.0,
+        "FA1_numerical_accuracy": 40.0,
         "FA2_citation_accuracy": 100.0,
-        "FA3_temporal_accuracy": 0,
+        "FA3_temporal_accuracy": 100.0,
         "FA4_entity_accuracy": 100.0,
         "FA5_hallucination_rate": 100.0,
-        "category_score": 64.0,
+        "category_score": 88.0,
         "target": 98.0,
-        "meets_target": false
+        "meets_target": true
       },
       "completeness": {
-        "CO1_section_coverage": 100.0,
-        "CO2_source_diversity": 75,
-        "CO3_temporal_coverage": 0,
+        "CO1_section_coverage": 80.0,
+        "CO2_source_diversity": 100.0,
+        "CO3_temporal_coverage": 100.0,
         "CO4_risk_coverage": 36,
-        "category_score": 52.8,
+        "category_score": 79.0,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "analytical_depth": {
-        "AD1_insight_density": 9.72762645914397,
+        "AD1_insight_density": 31.091662828189776,
+        "AD2_cross_source_synthesis": 60,
+        "AD3_quantitative_reasoning": 100.0,
+        "AD4_forward_looking": 60,
+        "category_score": 62.8,
+        "target": 75.0,
+        "meets_target": true
+      },
+      "coherence": {
+        "CS1_logical_flow": 80.0,
+        "CS2_internal_consistency": 100,
+        "CS3_executive_summary": 100.0,
+        "CS4_professional_formatting": 80.0,
+        "category_score": 90.0,
+        "target": 80.0,
+        "meets_target": true
+      },
+      "agent_behaviour": {
+        "AB1_tool_efficiency": 70.0,
+        "AB2_error_recovery": 100.0,
+        "AB3_planning_quality": 15,
+        "AB4_memory_utilization": 100.0,
+        "AB5_latency": 100.0,
+        "category_score": 77.0,
+        "target": 75.0,
+        "meets_target": true
+      }
+    },
+    "overall_score": 78.5,
+    "meets_minimum_threshold": true,
+    "word_count": 2171,
+    "report_preview": "# Investment Research Report: Microsoft Corporation (MSFT)\n\n**Rating: BUY | Price Target: $520 | Report Date: May 4, 2026**\n\n---\n\n## Research Methodology\n\nOur research systematically gathered data fro"
+  },
+  "challenge_2": {
+    "challenge_id": "challenge_2",
+    "timestamp": "2026-05-05T03:11:08.766076",
+    "scores": {
+      "factual_accuracy": {
+        "FA1_numerical_accuracy": 24.3,
+        "FA2_citation_accuracy": 100.0,
+        "FA3_temporal_accuracy": 100.0,
+        "FA4_entity_accuracy": 100.0,
+        "FA5_hallucination_rate": 100.0,
+        "category_score": 84.9,
+        "target": 98.0,
+        "meets_target": true
+      },
+      "completeness": {
+        "CO1_section_coverage": 80.0,
+        "CO2_source_diversity": 75,
+        "CO3_temporal_coverage": 100.0,
+        "CO4_risk_coverage": 48,
+        "category_score": 75.8,
+        "target": 80.0,
+        "meets_target": true
+      },
+      "analytical_depth": {
+        "AD1_insight_density": 20.0,
+        "AD2_cross_source_synthesis": 60,
+        "AD3_quantitative_reasoning": 100.0,
+        "AD4_forward_looking": 100,
+        "category_score": 70.0,
+        "target": 75.0,
+        "meets_target": true
+      },
+      "coherence": {
+        "CS1_logical_flow": 90.0,
+        "CS2_internal_consistency": 100,
+        "CS3_executive_summary": 100.0,
+        "CS4_professional_formatting": 80.0,
+        "category_score": 92.5,
+        "target": 80.0,
+        "meets_target": true
+      },
+      "agent_behaviour": {
+        "AB1_tool_efficiency": 70.0,
+        "AB2_error_recovery": 100.0,
+        "AB3_planning_quality": 30,
+        "AB4_memory_utilization": 100.0,
+        "AB5_latency": 100.0,
+        "category_score": 80.0,
+        "target": 75.0,
+        "meets_target": true
+      }
+    },
+    "overall_score": 79.8,
+    "meets_minimum_threshold": true,
+    "word_count": 2250,
+    "report_preview": "# Apple Inc (AAPL) \u2014 Q1 FY2025 Quarterly Earnings Analysis\n\n**Fiscal Q1 2025 | Period Ended: December 28, 2024 | Reported: February 6, 2025**\n\n---\n\n## Executive Summary\n\nApple Inc delivered a record-b"
+  },
+  "challenge_3": {
+    "challenge_id": "challenge_3",
+    "timestamp": "2026-05-05T03:11:15.833625",
+    "scores": {
+      "factual_accuracy": {
+        "FA1_numerical_accuracy": 26.7,
+        "FA2_citation_accuracy": 100.0,
+        "FA3_temporal_accuracy": 100.0,
+        "FA4_entity_accuracy": 100.0,
+        "FA5_hallucination_rate": 100.0,
+        "category_score": 85.3,
+        "target": 98.0,
+        "meets_target": true
+      },
+      "completeness": {
+        "CO1_section_coverage": 80.0,
+        "CO2_source_diversity": 100.0,
+        "CO3_temporal_coverage": 100.0,
+        "CO4_risk_coverage": 60,
+        "category_score": 85.0,
+        "target": 80.0,
+        "meets_target": true
+      },
+      "analytical_depth": {
+        "AD1_insight_density": 19.65065502183406,
         "AD2_cross_source_synthesis": 30,
-        "AD3_quantitative_reasoning": 90,
-        "AD4_forward_looking": 40,
-        "category_score": 42.4,
+        "AD3_quantitative_reasoning": 100.0,
+        "AD4_forward_looking": 60,
+        "category_score": 52.4,
         "target": 75.0,
         "meets_target": false
       },
       "coherence": {
         "CS1_logical_flow": 80.0,
         "CS2_internal_consistency": 100,
-        "CS3_executive_summary": 0,
-        "CS4_professional_formatting": 100.0,
-        "category_score": 70.0,
+        "CS3_executive_summary": 100.0,
+        "CS4_professional_formatting": 80.0,
+        "category_score": 90.0,
         "target": 80.0,
         "meets_target": true
       },
       "agent_behaviour": {
         "AB1_tool_efficiency": 70.0,
         "AB2_error_recovery": 100.0,
-        "AB3_planning_quality": 15,
+        "AB3_planning_quality": 60,
         "AB4_memory_utilization": 100.0,
         "AB5_latency": 100.0,
-        "category_score": 77.0,
+        "category_score": 86.0,
         "target": 75.0,
         "meets_target": true
       }
     },
-    "overall_score": 59.2,
-    "meets_minimum_threshold": false,
-    "word_count": 771,
-    "report_preview": "# Challenge 1: Microsoft Corporation Profile\n\n**Microsoft Corporation: A Comprehensive Profile**\n\n**Executive Summary**\n\nMicrosoft Corporation is a dominant technology company that develops, manufactu"
-  },
-  "challenge_2": {
-    "challenge_id": "challenge_2",
-    "timestamp": "2026-05-03T19:18:06.926617",
-    "scores": {
-      "factual_accuracy": {
-        "FA1_numerical_accuracy": 40.0,
-        "FA2_citation_accuracy": 100.0,
-        "FA3_temporal_accuracy": 0,
-        "FA4_entity_accuracy": 100.0,
-        "FA5_hallucination_rate": 100.0,
-        "category_score": 68.0,
-        "target": 98.0,
-        "meets_target": false
-      },
-      "completeness": {
-        "CO1_section_coverage": 100.0,
-        "CO2_source_diversity": 75,
-        "CO3_temporal_coverage": 0,
-        "CO4_risk_coverage": 48,
-        "category_score": 55.8,
-        "target": 80.0,
-        "meets_target": false
-      },
-      "analytical_depth": {
-        "AD1_insight_density": 52.63157894736842,
-        "AD2_cross_source_synthesis": 30,
-        "AD3_quantitative_reasoning": 25,
-        "AD4_forward_looking": 60,
-        "category_score": 41.9,
-        "target": 75.0,
-        "meets_target": false
-      },
-      "coherence": {
-        "CS1_logical_flow": 75.0,
-        "CS2_internal_consistency": 100,
-        "CS3_executive_summary": 0,
-        "CS4_professional_formatting": 100.0,
-        "category_score": 68.8,
-        "target": 80.0,
-        "meets_target": false
-      },
-      "agent_behaviour": {
-        "AB1_tool_efficiency": 70.0,
-        "AB2_error_recovery": 100.0,
-        "AB3_planning_quality": 0,
-        "AB4_memory_utilization": 100.0,
-        "AB5_latency": 100.0,
-        "category_score": 74.0,
-        "target": 75.0,
-        "meets_target": true
-      }
-    },
-    "overall_score": 60.1,
-    "meets_minimum_threshold": false,
-    "word_count": 570,
-    "report_preview": "# Challenge 2: Apple Earnings Analysis\n\n**Apple Inc. Quarterly Earnings Analysis Report**\n\n**Executive Summary**\n\nApple Inc.'s most recent quarterly earnings report revealed a strong performance, with"
-  },
-  "challenge_3": {
-    "challenge_id": "challenge_3",
-    "timestamp": "2026-05-03T19:19:19.377150",
-    "scores": {
-      "factual_accuracy": {
-        "FA1_numerical_accuracy": 85.0,
-        "FA2_citation_accuracy": 100.0,
-        "FA3_temporal_accuracy": 0,
-        "FA4_entity_accuracy": 100.0,
-        "FA5_hallucination_rate": 80.0,
-        "category_score": 73.0,
-        "target": 98.0,
-        "meets_target": true
-      },
-      "completeness": {
-        "CO1_section_coverage": 100.0,
-        "CO2_source_diversity": 30,
-        "CO3_temporal_coverage": 0,
-        "CO4_risk_coverage": 36,
-        "category_score": 41.5,
-        "target": 80.0,
-        "meets_target": false
-      },
-      "analytical_depth": {
-        "AD1_insight_density": 17.341040462427745,
-        "AD2_cross_source_synthesis": 45,
-        "AD3_quantitative_reasoning": 90,
-        "AD4_forward_looking": 20,
-        "category_score": 43.1,
-        "target": 75.0,
-        "meets_target": false
-      },
-      "coherence": {
-        "CS1_logical_flow": 75.0,
-        "CS2_internal_consistency": 100,
-        "CS3_executive_summary": 0,
-        "CS4_professional_formatting": 100.0,
-        "category_score": 68.8,
-        "target": 80.0,
-        "meets_target": false
-      },
-      "agent_behaviour": {
-        "AB1_tool_efficiency": 70.0,
-        "AB2_error_recovery": 100.0,
-        "AB3_planning_quality": 15,
-        "AB4_memory_utilization": 100.0,
-        "AB5_latency": 100.0,
-        "category_score": 77.0,
-        "target": 75.0,
-        "meets_target": true
-      }
-    },
-    "overall_score": 59.2,
-    "meets_minimum_threshold": false,
-    "word_count": 865,
-    "report_preview": "# Challenge 3: Tesla Risk Assessment\n\n**Comprehensive Risk Assessment Report: Tesla Inc**\n\n**Executive Summary**\n\nTesla Inc, a leading electric vehicle and clean energy company, faces a complex array "
+    "overall_score": 77.8,
+    "meets_minimum_threshold": true,
+    "word_count": 2290,
+    "report_preview": "# Tesla Inc (TSLA) \u2014 Comprehensive Risk Assessment\n\n**Report Date: May 4, 2026 | Analyst Rating: HOLD | Risk Profile: HIGH**\n\n---\n\n## Executive Summary\n\nTesla Inc presents one of the most complex risk"
   },
   "challenge_4": {
     "challenge_id": "challenge_4",
-    "timestamp": "2026-05-03T19:20:13.363915",
+    "timestamp": "2026-05-05T03:11:22.700602",
     "scores": {
       "factual_accuracy": {
-        "FA1_numerical_accuracy": 16.7,
+        "FA1_numerical_accuracy": 28.3,
         "FA2_citation_accuracy": 100.0,
-        "FA3_temporal_accuracy": 15,
+        "FA3_temporal_accuracy": 100.0,
         "FA4_entity_accuracy": 100.0,
         "FA5_hallucination_rate": 100.0,
-        "category_score": 66.3,
+        "category_score": 85.7,
         "target": 98.0,
-        "meets_target": false
+        "meets_target": true
       },
       "completeness": {
         "CO1_section_coverage": 80.0,
-        "CO2_source_diversity": 60,
-        "CO3_temporal_coverage": 30,
-        "CO4_risk_coverage": 24,
-        "category_score": 48.5,
+        "CO2_source_diversity": 90,
+        "CO3_temporal_coverage": 100.0,
+        "CO4_risk_coverage": 72,
+        "category_score": 85.5,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "analytical_depth": {
-        "AD1_insight_density": 15.321756894790603,
-        "AD2_cross_source_synthesis": 15,
+        "AD1_insight_density": 18.3182135380321,
+        "AD2_cross_source_synthesis": 30,
         "AD3_quantitative_reasoning": 100.0,
-        "AD4_forward_looking": 20,
-        "category_score": 37.6,
+        "AD4_forward_looking": 60,
+        "category_score": 52.1,
         "target": 75.0,
         "meets_target": false
       },
       "coherence": {
-        "CS1_logical_flow": 75.0,
+        "CS1_logical_flow": 90.0,
         "CS2_internal_consistency": 100,
-        "CS3_executive_summary": 0,
+        "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 80.0,
-        "category_score": 63.8,
+        "category_score": 92.5,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "agent_behaviour": {
         "AB1_tool_efficiency": 70.0,
         "AB2_error_recovery": 100.0,
-        "AB3_planning_quality": 15,
+        "AB3_planning_quality": 45,
         "AB4_memory_utilization": 100.0,
         "AB5_latency": 100.0,
-        "category_score": 77.0,
+        "category_score": 83.0,
         "target": 75.0,
         "meets_target": true
       }
     },
-    "overall_score": 56.8,
-    "meets_minimum_threshold": false,
-    "word_count": 979,
-    "report_preview": "# Challenge 4: Cloud Computing Comparison\n\n**Cloud Computing Market Analysis: Amazon AWS, Microsoft Azure, and Google GCP**\n\n**Executive Summary**\n\nThe cloud computing market is a rapidly growing sect"
+    "overall_score": 77.9,
+    "meets_minimum_threshold": true,
+    "word_count": 2866,
+    "report_preview": "# Cloud Infrastructure Wars: AWS vs. Azure vs. Google Cloud\n\n**Comprehensive Competitive Analysis | Report Date: May 4, 2026**\n\n---\n\n## Executive Summary\n\nThe global cloud infrastructure market crosse"
   },
   "challenge_5": {
     "challenge_id": "challenge_5",
-    "timestamp": "2026-05-03T19:21:25.505708",
+    "timestamp": "2026-05-05T03:11:29.546837",
     "scores": {
       "factual_accuracy": {
-        "FA1_numerical_accuracy": 85.0,
+        "FA1_numerical_accuracy": 26.8,
         "FA2_citation_accuracy": 100.0,
-        "FA3_temporal_accuracy": 0,
+        "FA3_temporal_accuracy": 100.0,
         "FA4_entity_accuracy": 100.0,
-        "FA5_hallucination_rate": 80.0,
-        "category_score": 73.0,
+        "FA5_hallucination_rate": 100.0,
+        "category_score": 85.4,
         "target": 98.0,
         "meets_target": true
       },
       "completeness": {
         "CO1_section_coverage": 80.0,
-        "CO2_source_diversity": 60,
-        "CO3_temporal_coverage": 0,
+        "CO2_source_diversity": 90,
+        "CO3_temporal_coverage": 100.0,
         "CO4_risk_coverage": 48,
-        "category_score": 47.0,
+        "category_score": 79.5,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "analytical_depth": {
-        "AD1_insight_density": 40.43126684636119,
-        "AD2_cross_source_synthesis": 30,
-        "AD3_quantitative_reasoning": 55,
-        "AD4_forward_looking": 20,
-        "category_score": 36.4,
+        "AD1_insight_density": 20.5078125,
+        "AD2_cross_source_synthesis": 45,
+        "AD3_quantitative_reasoning": 100.0,
+        "AD4_forward_looking": 60,
+        "category_score": 56.4,
         "target": 75.0,
         "meets_target": false
       },
       "coherence": {
-        "CS1_logical_flow": 75.0,
+        "CS1_logical_flow": 30.0,
         "CS2_internal_consistency": 100,
-        "CS3_executive_summary": 0,
+        "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 100.0,
-        "category_score": 68.8,
+        "category_score": 82.5,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "agent_behaviour": {
         "AB1_tool_efficiency": 70.0,
         "AB2_error_recovery": 100.0,
-        "AB3_planning_quality": 0,
+        "AB3_planning_quality": 45,
         "AB4_memory_utilization": 100.0,
         "AB5_latency": 100.0,
-        "category_score": 74.0,
+        "category_score": 83.0,
         "target": 75.0,
         "meets_target": true
       }
     },
-    "overall_score": 58.2,
-    "meets_minimum_threshold": false,
-    "word_count": 742,
-    "report_preview": "# Challenge 5: Palantir Contradictory Data Analysis\n\n**Palantir Technologies (PLTR) Research Report**\n\n**Executive Summary:**\nOur analysis of Palantir Technologies (PLTR) reveals a dichotomy between t"
+    "overall_score": 76.2,
+    "meets_minimum_threshold": true,
+    "word_count": 2560,
+    "report_preview": "# Palantir Technologies (PLTR) \u2014 Investigative Report: Resolving the Growth-Sentiment Contradiction\n\n**Report Date: May 4, 2026 | Rating: HOLD | Analytical Lens: Investigative**\n\n---\n\n## Executive Sum"
   },
-  "challenge_7": {
-    "challenge_id": "challenge_7",
-    "timestamp": "2026-05-03T19:22:47.234533",
+  "challenge_6": {
+    "challenge_id": "challenge_6",
+    "timestamp": "2026-05-05T03:11:36.508773",
     "scores": {
       "factual_accuracy": {
-        "FA1_numerical_accuracy": 0.0,
+        "FA1_numerical_accuracy": 30.0,
         "FA2_citation_accuracy": 100.0,
-        "FA3_temporal_accuracy": 0,
+        "FA3_temporal_accuracy": 100.0,
         "FA4_entity_accuracy": 100.0,
         "FA5_hallucination_rate": 100.0,
-        "category_score": 60.0,
+        "category_score": 86.0,
         "target": 98.0,
-        "meets_target": false
+        "meets_target": true
       },
       "completeness": {
-        "CO1_section_coverage": 80.0,
-        "CO2_source_diversity": 60,
-        "CO3_temporal_coverage": 0,
-        "CO4_risk_coverage": 36,
-        "category_score": 44.0,
+        "CO1_section_coverage": 60.0,
+        "CO2_source_diversity": 75,
+        "CO3_temporal_coverage": 100.0,
+        "CO4_risk_coverage": 48,
+        "category_score": 70.8,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "analytical_depth": {
-        "AD1_insight_density": 37.12871287128713,
-        "AD2_cross_source_synthesis": 30,
-        "AD3_quantitative_reasoning": 85,
-        "AD4_forward_looking": 20,
-        "category_score": 43.0,
+        "AD1_insight_density": 18.072289156626507,
+        "AD2_cross_source_synthesis": 45,
+        "AD3_quantitative_reasoning": 100.0,
+        "AD4_forward_looking": 100.0,
+        "category_score": 65.8,
         "target": 75.0,
-        "meets_target": false
+        "meets_target": true
       },
       "coherence": {
         "CS1_logical_flow": 75.0,
         "CS2_internal_consistency": 100,
-        "CS3_executive_summary": 0,
-        "CS4_professional_formatting": 100.0,
-        "category_score": 68.8,
+        "CS3_executive_summary": 100.0,
+        "CS4_professional_formatting": 80.0,
+        "category_score": 88.8,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "agent_behaviour": {
         "AB1_tool_efficiency": 70.0,
@@ -336,66 +336,123 @@
         "meets_target": true
       }
     },
-    "overall_score": 56.4,
-    "meets_minimum_threshold": false,
-    "word_count": 808,
-    "report_preview": "# Challenge 7: Technology Sector Analysis with Memory\n\n**Technology Sector Research Report: Emerging Themes, Risks, and Opportunities**\n\n**Executive Summary**\n\nThis report synthesizes data from multip"
+    "overall_score": 77.0,
+    "meets_minimum_threshold": true,
+    "word_count": 2905,
+    "report_preview": "# U.S. Banking Sector Analysis: JPMorgan Chase, Goldman Sachs & Bank of America\n\n**Sector Report: 2024\u20132025 Outlook | Report Date: May 4, 2026**\n\n---\n\n## Executive Summary\n\nThe U.S. large-cap banking "
   },
-  "challenge_7_preview": {
-    "challenge_id": "challenge_7_preview",
-    "timestamp": "2026-05-03T19:24:00.810057",
+  "challenge_7": {
+    "challenge_id": "challenge_7",
+    "timestamp": "2026-05-05T03:11:43.165226",
     "scores": {
       "factual_accuracy": {
-        "FA1_numerical_accuracy": 0.0,
+        "FA1_numerical_accuracy": 42.9,
         "FA2_citation_accuracy": 100.0,
-        "FA3_temporal_accuracy": 0,
+        "FA3_temporal_accuracy": 100.0,
         "FA4_entity_accuracy": 100.0,
-        "FA5_hallucination_rate": 80.0,
-        "category_score": 56.0,
+        "FA5_hallucination_rate": 100.0,
+        "category_score": 88.6,
         "target": 98.0,
-        "meets_target": false
+        "meets_target": true
       },
       "completeness": {
         "CO1_section_coverage": 80.0,
-        "CO2_source_diversity": 75,
-        "CO3_temporal_coverage": 0,
-        "CO4_risk_coverage": 36,
-        "category_score": 47.8,
+        "CO2_source_diversity": 90,
+        "CO3_temporal_coverage": 100.0,
+        "CO4_risk_coverage": 84,
+        "category_score": 88.5,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "analytical_depth": {
-        "AD1_insight_density": 26.132404181184672,
-        "AD2_cross_source_synthesis": 15,
-        "AD3_quantitative_reasoning": 35,
-        "AD4_forward_looking": 20,
-        "category_score": 24.0,
+        "AD1_insight_density": 19.66568338249754,
+        "AD2_cross_source_synthesis": 30,
+        "AD3_quantitative_reasoning": 100.0,
+        "AD4_forward_looking": 80,
+        "category_score": 57.4,
         "target": 75.0,
         "meets_target": false
       },
       "coherence": {
-        "CS1_logical_flow": 75.0,
+        "CS1_logical_flow": 80.0,
         "CS2_internal_consistency": 100,
-        "CS3_executive_summary": 0,
+        "CS3_executive_summary": 100.0,
         "CS4_professional_formatting": 80.0,
-        "category_score": 63.8,
+        "category_score": 90.0,
         "target": 80.0,
-        "meets_target": false
+        "meets_target": true
       },
       "agent_behaviour": {
         "AB1_tool_efficiency": 70.0,
         "AB2_error_recovery": 100.0,
-        "AB3_planning_quality": 0,
+        "AB3_planning_quality": 15,
         "AB4_memory_utilization": 100.0,
         "AB5_latency": 100.0,
-        "category_score": 74.0,
+        "category_score": 77.0,
         "target": 75.0,
         "meets_target": true
       }
     },
-    "overall_score": 50.2,
-    "meets_minimum_threshold": false,
-    "word_count": 574,
-    "report_preview": "# Challenge 7 Preview: Memory Test\n\n**Investment Research Report: Emerging Themes in the Technology Sector**\n\n**Executive Summary:**\nOur research on the technology sector, with a focus on Microsoft Co"
+    "overall_score": 79.2,
+    "meets_minimum_threshold": true,
+    "word_count": 3051,
+    "report_preview": "# Technology Sector Thematic Analysis: Three Forces Reshaping Big Tech\n\n**Coverage Universe: Microsoft (MSFT) | Apple (AAPL) | Nvidia (NVDA) | Alphabet (GOOGL)**\n**Report Date: May 4, 2026 | Sector We"
+  },
+  "challenge_8": {
+    "challenge_id": "challenge_8",
+    "timestamp": "2026-05-05T03:11:50.232657",
+    "scores": {
+      "factual_accuracy": {
+        "FA1_numerical_accuracy": 24.4,
+        "FA2_citation_accuracy": 100.0,
+        "FA3_temporal_accuracy": 100.0,
+        "FA4_entity_accuracy": 100.0,
+        "FA5_hallucination_rate": 80.0,
+        "category_score": 80.9,
+        "target": 98.0,
+        "meets_target": true
+      },
+      "completeness": {
+        "CO1_section_coverage": 80.0,
+        "CO2_source_diversity": 100.0,
+        "CO3_temporal_coverage": 100.0,
+        "CO4_risk_coverage": 60,
+        "category_score": 85.0,
+        "target": 80.0,
+        "meets_target": true
+      },
+      "analytical_depth": {
+        "AD1_insight_density": 10.80691642651297,
+        "AD2_cross_source_synthesis": 60,
+        "AD3_quantitative_reasoning": 100.0,
+        "AD4_forward_looking": 100.0,
+        "category_score": 67.7,
+        "target": 75.0,
+        "meets_target": true
+      },
+      "coherence": {
+        "CS1_logical_flow": 60.0,
+        "CS2_internal_consistency": 100,
+        "CS3_executive_summary": 100.0,
+        "CS4_professional_formatting": 80.0,
+        "category_score": 85.0,
+        "target": 80.0,
+        "meets_target": true
+      },
+      "agent_behaviour": {
+        "AB1_tool_efficiency": 70.0,
+        "AB2_error_recovery": 100.0,
+        "AB3_planning_quality": 30,
+        "AB4_memory_utilization": 100.0,
+        "AB5_latency": 100.0,
+        "category_score": 80.0,
+        "target": 75.0,
+        "meets_target": true
+      }
+    },
+    "overall_score": 78.9,
+    "meets_minimum_threshold": true,
+    "word_count": 3470,
+    "report_preview": "# NVIDIA Corporation (NVDA) \u2014 Full Investment Research Report\n\n**Rating: BUY | Price Target: $165 | Report Date: May 4, 2026**\n\n---\n\n## Executive Summary\n\nNVIDIA Corporation has undergone the most dra"
   }
 }

@@ -15,6 +15,14 @@ from memory.vector_store import VectorStore
 
 _vs = VectorStore()
 
+def _vector_db_search_fn(query: str, top_k: int = 5, ticker: str = None):
+    results = _vs.search(query, top_k, ticker)
+    return {"results": results, "count": len(results)}
+
+def _vector_db_store_fn(content: str, ticker: str, source_type: str):
+    doc_id = _vs.store(content, ticker, source_type)
+    return {"doc_id": doc_id}
+
 def register_all_tools():
     """Register all 12 tools dynamically"""
     
@@ -183,10 +191,7 @@ def register_all_tools():
                 },
                 "required": ["query"]
             },
-            function=lambda query, top_k=5, ticker=None: {
-                "results": _vs.search(query, top_k, ticker),
-                "count": len(_vs.search(query, top_k, ticker))
-            },
+            function=_vector_db_search_fn,
             fallbacks=[]
         ),
         ToolSchema(
@@ -201,9 +206,7 @@ def register_all_tools():
                 },
                 "required": ["content", "ticker", "source_type"]
             },
-            function=lambda content, ticker, source_type: {
-                "doc_id": _vs.store(content, ticker, source_type)
-            },
+            function=_vector_db_store_fn,
             fallbacks=[]
         ),
         ToolSchema(
