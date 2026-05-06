@@ -80,7 +80,7 @@ Query Input
 
 | Component | Technology | Cost |
 |-----------|-----------|------|
-| LLM | Groq (Llama 3.1 70B) | Free tier |
+| LLM | Groq (Llama 3.3 70B) | Free tier |
 | Embeddings | sentence-transformers all-MiniLM-L6-v2 | Free (local) |
 | Vector database | ChromaDB | Free (local) |
 | Financial data | Yahoo Finance (yfinance) | Free |
@@ -160,17 +160,25 @@ ARA-1/
 ├── agent/
 │   ├── core.py              # Main ARA1Agent class, ReAct loop
 │   ├── llm.py               # LLM provider (Groq) with retry logic
-│   ├── memory.py            # Semantic + episodic memory system
-│   ├── planner.py           # Plan-and-Execute research planner
 │   ├── prompts.py           # System, planning, and synthesis prompts
 │   ├── circuit_breaker.py   # Circuit breaker implementation
-│   └── error_handler.py     # Exponential backoff + graceful degradation
+│   ├── error_handler.py     # Exponential backoff + graceful degradation
+│   ├── fallback_chains.py   # Tool fallback chains and confidence scoring
+│   ├── disambiguation.py    # Query disambiguation engine
+│   ├── query_analyzer.py    # Query type classification
+│   ├── parser.py            # ReAct output parser
+│   └── logger.py            # Structured agent logging
+├── memory/
+│   ├── vector_store.py      # Semantic memory (ChromaDB + sentence-transformers)
+│   ├── episodic.py          # Episodic strategy memory across sessions
+│   └── context_manager.py  # Context window management
 ├── tools/
 │   ├── __init__.py          # Tool registry
 │   ├── financial_api.py     # FMP + Yahoo Finance financial data
 │   ├── sec_edgar.py         # SEC EDGAR filing retrieval
 │   ├── web_search.py        # DuckDuckGo web search
-│   └── failure_injector.py  # Testing: simulated tool failures
+│   ├── failure_injector.py  # Testing: simulated tool failures
+│   └── ...                  # Additional tools (earnings, peers, sentiment)
 ├── results/
 │   ├── challenge_1.md       # Microsoft investment report
 │   ├── challenge_2.md       # Apple earnings analysis
@@ -192,8 +200,20 @@ ARA-1/
 │   └── session_*.json       # Per-session execution logs
 ├── stress_test.py
 ├── token_analysis.py
+├── requirements.txt
 └── README.md
 ```
+
+---
+
+## API Keys Required
+
+| Key | Where to Get | Cost |
+|-----|-------------|------|
+| `GROQ_API_KEY` | [console.groq.com](https://console.groq.com) — create account, go to API Keys | Free tier |
+| `FMP_API_KEY` | [financialmodelingprep.com/developer](https://financialmodelingprep.com/developer/docs/) — register for free tier | Free tier (250 req/day) |
+
+All other data sources (SEC EDGAR, Yahoo Finance, DuckDuckGo) require no API key.
 
 ---
 
@@ -208,17 +228,26 @@ cd Project1A-Vibhoragarwal-AutonomousFinancialResearchAgent
 pip install -r requirements.txt
 
 # Set environment variables
-export GROQ_API_KEY=your_groq_api_key        # Free at console.groq.com
-export FMP_API_KEY=your_fmp_api_key          # Free tier at financialmodelingprep.com
-
-# Run a research query
-python -c "
-from agent.core import ARA1Agent
-agent = ARA1Agent()
-report = agent.research('Analyze Microsoft investment thesis', urgency='normal')
-print(report)
-"
+export GROQ_API_KEY=your_groq_api_key
+export FMP_API_KEY=your_fmp_api_key
 ```
+
+---
+
+## How to Run a Research Query
+
+```python
+from agent.core import ARA1Agent
+
+agent = ARA1Agent()
+report = agent.research('Analyze Microsoft investment thesis', urgency='standard')
+print(report)
+```
+
+Valid `urgency` values:
+- `'standard'` — full research, 10–15 tool calls (default)
+- `'urgent'` — faster research, capped at 10 tool calls
+- `'critical'` — rapid summary, capped at 5 tool calls
 
 ---
 
@@ -277,6 +306,17 @@ Reports are scored on 5 dimensions:
 **4. Transparency over confidence.** When data confidence is medium or low (due to tool fallbacks), this is explicitly stated in the report. A transparent medium-confidence report is more valuable than a confident hallucinated one.
 
 **5. Zero-cost architecture.** Every component uses a free tier or locally-run model. Production-grade autonomous financial research is achievable at $0.00 in infrastructure cost.
+
+---
+
+## AI Tools Used
+
+| Tool | Role |
+|------|------|
+| **Claude Code** (Anthropic) | Primary coding assistant used throughout the 15-day build — architecture design, debugging, code review, and documentation |
+| **Groq API** (Llama 3.3 70B) | Runtime LLM powering the agent's reasoning, planning, and synthesis in every research session |
+| **sentence-transformers** (all-MiniLM-L6-v2) | Local embedding model for semantic similarity search in the vector memory store |
+| **ChromaDB** | Local vector database for storing and retrieving semantic research memory |
 
 ---
 

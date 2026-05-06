@@ -1,0 +1,32 @@
+{
+  "intern_identifier": "vibhoragarwal25",
+  "intern_name": "Vibhor Agarwal",
+  "intern_email": "your-email@gmail.com",
+  "project_code": "1A",
+  "project_title": "Autonomous Financial Research Agent with Multi-Source Synthesis",
+  "submission_type": "github",
+  "submission_date": "2026-05-05T00:00:00Z",
+  "tech_stack": [
+    "Python",
+    "LangChain/LangGraph",
+    "Groq/Llama-3.3",
+    "ChromaDB",
+    "sentence-transformers",
+    "SEC EDGAR API",
+    "Financial Modeling Prep",
+    "Yahoo Finance",
+    "Tavily Search"
+  ],
+  "duration_days": 15,
+  "github_repo_url": "https://github.com/vibhoragarwal25/Project1A-Vibhoragarwal-AutonomousFinancialResearchAgent",
+  "assessment_criteria": {
+    "architecture_design": true,
+    "tool_orchestration": true,
+    "memory_system": true,
+    "error_handling": true,
+    "evaluation_framework": true,
+    "research_output_quality": true,
+    "code_quality": true,
+    "documentation": true
+  }
+}
